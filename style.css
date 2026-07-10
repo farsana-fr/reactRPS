@@ -1,0 +1,139 @@
+body
+{
+    background-color: rgb(225, 178, 185);
+    
+ font-family: "Bitcount Prop Single Ink", system-ui;
+
+ font-weight: 700;
+}
+
+.overlay
+{
+    height:100%;
+    width:100%;
+    background-color: black;
+    opacity:0.5;
+    position:fixed;
+    top:0;
+    left:0;
+    display:none;
+    z-index:0;
+    cursor: pointer;
+}
+.game-area,.welcome
+{
+    background-color: rgb(227, 198, 203);
+
+    border: black 1px solid;
+    border-radius: 5%;
+color:black;
+ height: 380px;
+    width: 37%;
+}
+.welcome
+{
+    padding:5%;
+}
+.pink
+{
+    background-color: rgb(225, 178, 185);
+}
+.green
+{
+    background-color: green;
+    color: white;
+}
+.red
+{
+    background-color: red;
+    color: white;
+}
+.hidden
+{
+    display: none;
+}
+
+.score-plyr,.score-comp
+{
+    display: block;
+    margin-top: 0px;
+}
+.dspl img
+{
+    width:100px;
+    height: 100px;
+}
+.game,.rst
+{
+    margin-top: 50px;
+}
+.msg
+{
+    height: 20%;
+    width: 37%;
+    position:fixed;
+    top:30px;
+    left:30%;
+    z-index:1;
+    
+}
+.msg .rst,.submit
+{
+    display: block; /* Makes the button a block-level element */
+        margin: 0 auto; 
+}
+
+
+@media (max-width:900px) {
+    .game-area,.welcome{
+        width: 70%;
+    }
+    .score-head{
+        font-size: 1rem;
+    }
+}
+@media (max-width:500px) {
+    .game-area,.welcome{
+        width: 80%;
+        height:90%;
+    }
+    .dspl img
+    {
+        width:80px;
+    }
+    .score-head{
+        font-size: 1rem;
+    }
+   .btn
+    {
+        padding: 3px;
+        margin: 0px;
+    }
+}
+@media (max-width:300px) {
+    .game-area,.welcome {
+        width: 95%;
+     
+    }
+    .dspl img
+    {
+        width:80px;
+       
+    }
+    .ds-plyr
+    {
+        padding:0;
+    }
+    .score-head{
+        font-size: 1rem;
+    }
+    .btn
+    {
+        padding: 0;
+        margin: 0;
+    }
+    .game
+    {
+        padding:0;
+    }
+}
