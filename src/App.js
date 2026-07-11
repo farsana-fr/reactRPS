@@ -84,17 +84,17 @@ function PlayGround({
     console.log(plyrSel);
     //const compSel=document.getElementsByClassName("ds-comp")[0].firstChild.src;
     if (
-      (plyrSel.localeCompare("scissor") && compSel.localeCompare("paper")) ||
-      (plyrSel.localeCompare("paper") && compSel.localeCompare("rock") ) ||
-      (plyrSel.localeCompare("rock")  && compSel.localeCompare("scissor"))
+      (plyrSel === "scissor" && compSel === "paper") ||
+      (plyrSel === "paper" && compSel === "rock") ||
+      (plyrSel === "rock" && compSel === "scissor")
     ) {
       console.log("IF");
       setPScore((s) => s + 1);
     }
     if (
-      (compSel.localeCompare( "scissor") && plyrSel.localeCompare( "paper")) ||
-      (compSel.localeCompare( "paper") && plyrSel.localeCompare( "rock")) ||
-      (compSel.localeCompare( "rock") && plyrSel.localeCompare( "scissor"))
+      (compSel === "scissor" && plyrSel === "paper") ||
+      (compSel === "paper" && plyrSel === "rock") ||
+      (compSel === "rock" && plyrSel === "scissor")
     ) {
       console.log("ELSE IF");
       setCScore((s) => s + 1);
