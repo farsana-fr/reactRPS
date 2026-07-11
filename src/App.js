@@ -80,21 +80,21 @@ function PlayGround({
     console.log("Now Score");
     let plyrSel = document.getElementsByClassName("ds-plyr")[0].firstChild.src;
 
-    plyrSel = plyrSel.slice(29, -5);
+    //plyrSel = plyrSel.slice(29, -5);
     console.log(plyrSel);
     //const compSel=document.getElementsByClassName("ds-comp")[0].firstChild.src;
     if (
-      (plyrSel === "scissor" && compSel === "paper") ||
-      (plyrSel === "paper" && compSel === "rock") ||
-      (plyrSel === "rock" && compSel === "scissor")
+      (plyrSel.includes("scissor") && compSel.includes("paper")) ||
+      (plyrSel.includes("paper") && compSel.includes("rock")) ||
+      (plyrSel.includes("rock") && compSel.includes("scissor"))
     ) {
       console.log("IF");
       setPScore((s) => s + 1);
     }
     if (
-      (compSel === "scissor" && plyrSel === "paper") ||
-      (compSel === "paper" && plyrSel === "rock") ||
-      (compSel === "rock" && plyrSel === "scissor")
+      (compSel.includes("scissor") && plyrSel.includes("paper")) ||
+      (compSel.includes("paper") && plyrSel.includes("rock")) ||
+      (compSel.includes("rock") && plyrSel.includes("scissor"))
     ) {
       console.log("ELSE IF");
       setCScore((s) => s + 1);
