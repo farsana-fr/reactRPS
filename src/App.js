@@ -78,23 +78,29 @@ function PlayGround({
     setCSelect((img) => "./images/" + compSel + ".jpeg");
     //Now Handle ScoreBoard
     console.log("Now Score");
-    let plyrSel = document.getElementsByClassName("ds-plyr")[0].firstChild.src;
+    let playerSel = document.getElementsByClassName("ds-plyr")[0].firstChild.src;
 
-    //plyrSel = plyrSel.slice(29, -5);
-    console.log(plyrSel);
+    //playerSel = playerSel.slice(29, -5);
+    console.log(playerSel);
+    const url = new URL(playerSel);
+
+// url.pathname is "/images/paperslice"
+const lastPart = url.pathname.split('/').pop(); // "paperslice"
+const plyrSel = lastPart.substring(0, lastPart.lastIndexOf('.')); // "paperslice"
+console.log(plyrSel);
     //const compSel=document.getElementsByClassName("ds-comp")[0].firstChild.src;
     if (
-      (plyrSel.includes("scissor") && compSel.includes("paper")) ||
-      (plyrSel.includes("paper") && compSel.includes("rock")) ||
-      (plyrSel.includes("rock") && compSel.includes("scissor"))
+      (plyrSel === "scissor" && compSel === "paper") ||
+      (plyrSel === "paper" && compSel === "rock") ||
+      (plyrSel === "rock" && compSel === "scissor")
     ) {
       console.log("IF");
       setPScore((s) => s + 1);
     }
     if (
-      (compSel.includes("scissor") && plyrSel.includes("paper")) ||
-      (compSel.includes("paper") && plyrSel.includes("rock")) ||
-      (compSel.includes("rock") && plyrSel.includes("scissor"))
+      (compSel === "scissor" && plyrSel === "paper") ||
+      (compSel === "paper" && plyrSel === "rock") ||
+      (compSel === "rock" && plyrSel === "scissor")
     ) {
       console.log("ELSE IF");
       setCScore((s) => s + 1);
