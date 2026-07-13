@@ -22,7 +22,7 @@ function Game({ isStart, setStart }) {
   }
   return !isStart ? (
     <>
-      <div className="container welcome w-50">
+      <div className="container welcome ">
         <form className="input col-auto" onSubmit={handleSubmit}>
           <label className="form-label">Enter Maximum Score</label>
           <input
@@ -39,7 +39,7 @@ function Game({ isStart, setStart }) {
       </div>
     </>
   ) : (
-    <div className=" container game-area w-50">
+    <div className=" container game-area ">
       <ScoreBoard pScore={playerScore} cScore={compScore} />
       <PlayGround
         pSelect={playerSelect}
@@ -206,8 +206,8 @@ function PlayGround({
   ) : (
     <>
       <div className="overlay"> </div>
-        <div className={`w-50 msg  ${result === "Player" ? "green" : "red"}`}>
-          <h1 className="text-center">{result}</h1>
+        <div className={` msg  ${result === "Player" ? "green" : "red"}`}>
+          <h1 className="text-center">{result} Won</h1>
           <button className="  rst" onClick={handleReset}>
             Restart
           </button>
