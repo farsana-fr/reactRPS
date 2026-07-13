@@ -2,10 +2,10 @@ import { useState } from "react";
 function App() {
   const [gameStart, setGameStart] = useState(false);
   return (
-    <>
+    <div className="app">
       <Header />
       <Game isStart={gameStart} setStart={setGameStart} />
-    </>
+    </div>
   );
 }
 function Game({ isStart, setStart }) {
@@ -22,7 +22,7 @@ function Game({ isStart, setStart }) {
   }
   return !isStart ? (
     <>
-      <div className="welcome container">
+      <div className="container welcome w-50">
         <form className="input col-auto" onSubmit={handleSubmit}>
           <label className="form-label">Enter Maximum Score</label>
           <input
@@ -39,7 +39,7 @@ function Game({ isStart, setStart }) {
       </div>
     </>
   ) : (
-    <div className=" container game-area">
+    <div className=" container game-area w-50">
       <ScoreBoard pScore={playerScore} cScore={compScore} />
       <PlayGround
         pSelect={playerSelect}
@@ -206,7 +206,7 @@ function PlayGround({
   ) : (
     <>
       <div className="overlay"> </div>
-        <div className={`msg  ${result === "Player" ? "green" : "red"}`}>
+        <div className={`w-50 msg  ${result === "Player" ? "green" : "red"}`}>
           <h1 className="text-center">{result}</h1>
           <button className="  rst" onClick={handleReset}>
             Restart

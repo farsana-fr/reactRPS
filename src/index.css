@@ -14,7 +14,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: none;
+  
   z-index: 0;
   cursor: pointer;
 }
@@ -25,7 +25,7 @@
   border-radius: 5%;
   color: black;
   height: 380px;
-  /* width: 37%; */
+  width: 37%;
 }
 .welcome {
   padding: 5%;
@@ -40,6 +40,17 @@
 .red {
   background-color: red;
   color: white;
+}
+textarea
+{
+  border:none;
+  outline: none;
+  box-shadow: none;
+  resize:none !important;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 .hidden {
   display: none;
@@ -59,7 +70,8 @@
   margin-top: 50px;
 }
 .msg {
-  height: 20%;
+ 
+  height: 30%;
   width: 37%;
   position: fixed;
   top: 30px;
