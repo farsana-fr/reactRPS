@@ -14,15 +14,18 @@ function Game({ isStart, setStart }) {
   const [playerSelect, setPlayerSelect] = useState("./images/default.jpeg");
   const [compSelect, setCompSelect] = useState("./images/default.jpeg");
   const [maxScore, setMaxScore] = useState();
-  function handleSubmit() {
-    setStart((v) => true);
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (maxScore <= 0) {
+      alert("Enter a number greater than 0");
+    } else setStart((v) => true);
   }
   function handleMaxScore(e) {
     setMaxScore((score) => Number(e.target.value));
   }
   return !isStart ? (
     <>
-      <div className="container welcome ">
+      <div className=" welcome ">
         <form className="input col-auto" onSubmit={handleSubmit}>
           <label className="form-label">Enter Maximum Score</label>
           <input
@@ -30,6 +33,7 @@ function Game({ isStart, setStart }) {
             className="form-control max-score"
             value={maxScore}
             onChange={handleMaxScore}
+            required
           />
 
           <button type="submit" className="btn pink submit mt-5">
@@ -39,7 +43,7 @@ function Game({ isStart, setStart }) {
       </div>
     </>
   ) : (
-    <div className=" container game-area ">
+    <div className="  game-area ">
       <ScoreBoard pScore={playerScore} cScore={compScore} />
       <PlayGround
         pSelect={playerSelect}
@@ -122,8 +126,8 @@ function PlayGround({
     const url = new URL(playerSel);
 
     // url.pathname is "/images/paperslice"
-    const lastPart = url.pathname.split("/").pop(); // "paperslice"
-    const plyrSel = lastPart.substring(0, lastPart.lastIndexOf(".")); // "paperslice"
+    const lastPart = url?.pathname.split("/").pop(); // "paperslice"
+    const plyrSel = lastPart?.substring(0, lastPart.lastIndexOf(".")); // "paperslice"
     console.log(plyrSel);
     //const compSel=document.getElementsByClassName("ds-comp")[0].firstChild.src;
     if (
@@ -145,15 +149,19 @@ function PlayGround({
     setTimeout(() => checkScore(), 1000);
   }
   function checkScore() {
-    const cScore = Number(document.getElementsByClassName("score-comp")[0].textContent);
-    const pScore = Number(document.getElementsByClassName("score-plyr")[0].textContent);
+    const cScore = Number(
+      document.getElementsByClassName("score-comp")[0].textContent,
+    );
+    const pScore = Number(
+      document.getElementsByClassName("score-plyr")[0].textContent,
+    );
     console.log("checkScore", pScore, cScore);
     console.log("maxScore", maxScore);
 
     const result =
-      (pScore === maxScore  && pScore > cScore)
+      pScore === maxScore && pScore > cScore
         ? "Player"
-        : (cScore === maxScore&&cScore > pScore)
+        : cScore === maxScore && cScore > pScore
           ? "Computer"
           : "Draw";
     console.log(result);
@@ -170,7 +178,6 @@ function PlayGround({
     setPScore((s) => 0);
     setResult((r) => "");
     setStart((s) => false);
-    
   }
   return result === "" ? (
     <>
@@ -206,13 +213,12 @@ function PlayGround({
   ) : (
     <>
       <div className="overlay"> </div>
-        <div className={` msg  ${result === "Player" ? "green" : "red"}`}>
-          <h1 className="text-center">{result} Won</h1>
-          <button className="  rst" onClick={handleReset}>
-            Restart
-          </button>
-        </div>
-     
+      <div className={` msg  ${result === "Player" ? "green" : "red"}`}>
+        <h1 className="text-center">{result} Won</h1>
+        <button className="  rst" onClick={handleReset}>
+          Restart
+        </button>
+      </div>
     </>
   );
 }
