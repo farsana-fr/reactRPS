@@ -93,7 +93,6 @@ textarea {
   .game-area,
   .welcome {
     width: 50%;
-    
   }
   .score-head {
     font-size: 1rem;
@@ -139,5 +138,26 @@ textarea {
   }
   .game {
     padding: 0;
+  }
+}
+.selection {
+  width: 150px;
+  height: 150px;
+  animation: reveal 0.4s ease-out;
+}
+
+@keyframes reveal {
+  0% {
+    transform: scale(0) rotate(-90deg);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(0.75) rotate(10deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
   }
 }
